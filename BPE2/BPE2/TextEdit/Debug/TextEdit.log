@@ -1,0 +1,9 @@
+﻿  pch.cpp
+  App.xaml.cpp
+  MainPage.xaml.cpp
+  Phone.cpp
+  XamlTypeInfo.Impl.g.cpp
+  XamlTypeInfo.g.cpp
+     Creating library C:\Users\жш\OneDrive\Documents\BPE2\Debug\TextEdit\TextEdit.lib and object C:\Users\жш\OneDrive\Documents\BPE2\Debug\TextEdit\TextEdit.exp
+  TextEdit.vcxproj -> C:\Users\жш\OneDrive\Documents\BPE2\Debug\TextEdit\TextEdit.exe
+  TextEdit.vcxproj -> C:\Users\жш\OneDrive\Documents\BPE2\Debug\TextEdit\TextEdit.pdb (Partial PDB)

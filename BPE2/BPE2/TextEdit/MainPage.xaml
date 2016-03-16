@@ -1,0 +1,287 @@
+﻿<Page
+    x:Class="TextEdit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TextEdit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ItemStyle">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin"  Value="5"/>
+        </Style>
+    </Page.Resources>
+
+    <Page.TopAppBar>
+        <CommandBar >
+            <AppBarButton Name="SaveBtn" 
+                          Icon="Save"
+                          Label="Save" 
+                          Click="SaveBtn_Click"/>
+            <AppBarButton Name="OpenBtn"
+                          Icon="OpenFile"
+                          Label="Open" 
+                          Click="OpenBtn_Click"/>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="0"
+                    Grid.Column="0">
+            <TextBlock Style="{StaticResource LabelStyle}" 
+                   Text="Model"/>
+            <TextBox x:Name="ModelTextBox"
+                     TextWrapping="Wrap"
+                     PlaceholderText="Model"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="1"
+                    Grid.Column="0">
+            <TextBlock Style="{StaticResource LabelStyle}" 
+                       Text="Producer"/>
+            <TextBox x:Name="ProducerTextBox" 
+                     TextWrapping="Wrap" 
+                     PlaceholderText="Producer"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="2"
+                    Grid.Column="0">
+            <TextBlock Style="{StaticResource LabelStyle}"
+                       Text="Price, USD"/>
+            <TextBox x:Name="PriceTextBox"
+                     TextWrapping="Wrap" 
+                     PlaceholderText="Price"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="0"
+                    Grid.Column="1">
+            <TextBlock Style="{StaticResource LabelStyle}" 
+                       Text="Form Factor"/>
+            <ComboBox Name="FormFactor">
+                <ComboBoxItem Content="Flip"/>
+                <ComboBoxItem Content="Bar"/>
+                <ComboBoxItem Content="Slider"/>
+                <ComboBoxItem Content="Touchscreen"/>
+            </ComboBox>
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="1"
+                    Grid.Column="1">
+            <TextBlock Style="{StaticResource LabelStyle}" 
+                       Text="Type Of Network"/>
+            <AutoSuggestBox Name="Network"
+                            >
+
+            </AutoSuggestBox>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="2"
+                    Grid.Column="1">
+
+            <TextBlock Style="{StaticResource LabelStyle}"
+                       Text="Count Of Cards"/>
+            <Slider x:Name="Cards"
+                    Maximum="4"
+                    Width="50"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" 
+                    Grid.Row="3"
+                    Grid.Column="0">
+            <TextBlock Style="{StaticResource LabelStyle}" 
+                       Text="Model Year" />
+            <TextBox x:Name="YearTextBox"
+                     TextWrapping="Wrap" 
+                     PlaceholderText="Year"/>
+        </StackPanel>
+        <Button  Name="ActionButton"
+            Content="Add" 
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                
+                HorizontalAlignment="Stretch"
+                PointerEntered="Button_PointerEntered"
+                PointerExited="Button_PointerExited"/>
+
+
+        <ListView Name="PhonesView"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"                  
+                      MaxHeight="500"
+                      ItemsSource="{x:Bind Phones}"
+                      Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Grid.Column="0">
+                        <TextBlock Text="Model"
+                                        Style="{StaticResource ItemStyle}"
+                                        FontWeight="Bold"/>
+                    </Border>
+                    <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="1">
+                        <TextBlock Text="Producer"
+                                       FontWeight="Bold" 
+                                       Style="{StaticResource ItemStyle}"/>
+                    </Border>
+
+                    <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="2">
+                        <TextBlock Text="Form Factor"
+                                       FontWeight="Bold"
+                                        Style="{StaticResource ItemStyle}"/>
+                    </Border>
+
+                    <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="3">
+                        <TextBlock Text="Typr of network"
+                                       FontWeight="Bold"
+                                        Style="{StaticResource ItemStyle}"/>
+                    </Border>
+
+                    <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="4">
+                        <TextBlock Text="Model Year"
+                                       FontWeight="Bold"
+                                        Style="{StaticResource ItemStyle}"/>
+                    </Border>
+
+                    <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="5">
+                        <TextBlock Text="Cards"
+                                       FontWeight="Bold"
+                                        Style="{StaticResource ItemStyle}"/>
+                    </Border>
+
+                    <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="6">
+                        <TextBlock Text="Price"    
+                                       FontWeight="Bold"
+                                        Style="{StaticResource ItemStyle}"/>
+                    </Border>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0,0"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Phone">
+                    <Grid RightTapped="Grid_RightTapped">
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout Placement="Right">
+                                <MenuFlyoutItem x:Name="EditButton"
+                                                    Text="Edit" 
+                                                    Click="EditButton_Click"/>
+                                <MenuFlyoutItem x:Name="DeleteButton" 
+                                                    Text="Delete" 
+                                                    Click="DeleteButton_Click"/>
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Grid.Column="0">
+                            <TextBlock Text="{x:Bind model}"
+                                        Style="{StaticResource ItemStyle}"
+                                        />
+                        </Border>
+                        <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="1">
+                            <TextBlock Text="{x:Bind producer}"
+                                        Style="{StaticResource ItemStyle}"/>
+                        </Border>
+
+                        <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="2">
+                            <TextBlock Text="{x:Bind formFactor}"
+                                        Style="{StaticResource ItemStyle}"/>
+                        </Border>
+
+                        <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="3">
+                            <TextBlock Text="{x:Bind typeOfNetwork}"
+                                        Style="{StaticResource ItemStyle}"/>
+                        </Border>
+
+                        <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="4">
+                            <TextBlock Text="{x:Bind modelYear}"
+                                        Style="{StaticResource ItemStyle}"/>
+                        </Border>
+
+                        <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="5">
+                            <TextBlock Text="{x:Bind countOfCards}"
+                                        Style="{StaticResource ItemStyle}"/>
+                        </Border>
+
+                        <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Grid.Column="6">
+                            <TextBlock Text="{x:Bind price}"
+                                        Style="{StaticResource ItemStyle}"/>
+                        </Border>
+                    </Grid>
+
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</Page>

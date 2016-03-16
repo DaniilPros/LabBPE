@@ -1,0 +1,13 @@
+﻿  pch.cpp
+  App.xaml.cpp
+  MainPage.xaml.cpp
+c:\users\жш\onedrive\documents\bpe2\bill\mainpage.xaml.cpp(34): warning C4018: '<': signed/unsigned mismatch (compiling source file MainPage.xaml.cpp)
+c:\users\жш\onedrive\documents\bpe2\bill\mainpage.xaml.cpp(63): warning C4018: '<': signed/unsigned mismatch (compiling source file MainPage.xaml.cpp)
+c:\users\жш\onedrive\documents\bpe2\bill\mainpage.xaml.cpp(85): warning C4018: '<': signed/unsigned mismatch (compiling source file MainPage.xaml.cpp)
+c:\users\жш\onedrive\documents\bpe2\bill\mainpage.xaml.cpp(107): warning C4018: '<': signed/unsigned mismatch (compiling source file MainPage.xaml.cpp)
+c:\users\жш\onedrive\documents\bpe2\bill\mainpage.xaml.cpp(159): warning C4018: '<=': signed/unsigned mismatch (compiling source file MainPage.xaml.cpp)
+  XamlTypeInfo.Impl.g.cpp
+  XamlTypeInfo.g.cpp
+     Creating library C:\Users\жш\OneDrive\Documents\BPE2\Debug\Bill\Bill.lib and object C:\Users\жш\OneDrive\Documents\BPE2\Debug\Bill\Bill.exp
+  Bill.vcxproj -> C:\Users\жш\OneDrive\Documents\BPE2\Debug\Bill\Bill.exe
+  Bill.vcxproj -> C:\Users\жш\OneDrive\Documents\BPE2\Debug\Bill\Bill.pdb (Partial PDB)
